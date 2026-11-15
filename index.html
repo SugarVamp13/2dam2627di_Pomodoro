@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pomodoro Inmersivo - Temas Fantásticos</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&amp;family=Orbitron:wght@500;700;900&amp;family=Rajdhani:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="theme-manga">
+    <!-- Contadores Globales Exteriores (Arriba a la derecha) -->
+    <div class="global-counters-hud">
+        <div class="global-hud-badge hud-focus" title="Minutos totales en Concentración">
+            <i class="material-icons-round">local_fire_department</i>
+            <span id="global-focus-minutes">0</span>
+            <small>min (Focus)</small>
+        </div>
+        <div class="global-hud-badge hud-breaks" title="Minutos totales en Descansos">
+            <i class="material-icons-round">hourglass_bottom</i>
+            <span id="global-break-minutes">0</span>
+            <small>min (Break)</small>
+        </div>
+        <!-- Contador de Desafíos con tooltip dinámico -->
+        <div class="global-hud-badge hud-challenges" id="challenges-hud-badge">
+            <i class="material-icons-round">military_tech</i>
+            <span id="global-challenges-count">0</span>
+            <small>Desafíos</small>
+            <div class="challenges-tooltip" id="challenges-tooltip">
+                <div class="tooltip-title">Historial de Desafíos</div>
+                <div class="tooltip-list" id="challenges-tooltip-list">
+                    <span class="tooltip-empty">Ningún desafío completado aún</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Panel Lateral / Menú -->
+        <div class="left-panel">
+            <div class="brand-header">
+                <div class="brand-icon" id="theme-logo-icon"><i class="material-icons-round">terminal</i></div>
+                <div class="brand-text">
+                    <h2 id="theme-title">Neo-Tokyo Focus</h2>
+                    <span id="theme-subtitle">Neural Sync Active</span>
+                </div>
+            </div>
+            <!-- Botones de Acción Rápida (FAB Menu) con Iconos Adaptativos -->
+            <div class="fab-menu">
+                <button class="fab-button" id="btn-fab-challenge" onclick="toggleSection('challenge')">
+                    <i class="material-icons-round" id="icon-fab-challenge">rocket_launch</i>
+                    <span class="fab-tooltip">Desafío Épico</span>
+                </button>
+                <button class="fab-button" id="btn-fab-streak" onclick="toggleSection('streak')">
+                    <i class="material-icons-round" id="icon-fab-streak">calendar_month</i>
+                    <span class="fab-tooltip">Racha de Sabiduría</span>
+                </button>
+                <button class="fab-button active" id="btn-fab-aesthetics" onclick="toggleSection('aesthetics')">
+                    <i class="material-icons-round" id="icon-fab-aesthetics">tune</i>
+                    <span class="fab-tooltip">Estética Visual</span>
+                </button>
+                <button class="fab-button" id="btn-fab-settings" onclick="toggleSection('settings')">
+                    <i class="material-icons-round" id="icon-fab-settings">settings</i>
+                    <span class="fab-tooltip">Ajustes</span>
+                </button>
+            </div>
+
+            <!-- Sección: Desafío -->
+            <div class="section-content" id="challenge-section">
+                <div class="section-header">
+                    <div class="section-header-title">
+                        <i class="material-icons-round" id="icon-challenge-header">sports_score</i>
+                        <h3 id="challenge-display-title">Desafío Diario</h3>
+                    </div>
+                </div>
+
+                <!-- Botón compacto "Editar Desafío" -->
+                <button class="btn-action btn-edit-toggle-small" id="btn-edit-toggle" onclick="toggleChallengeEditMenu()">
+                    <i class="material-icons-round">edit</i>
+                    <span>Editar Desafío</span>
+                </button>
+
+                <!-- Contenedor desplegable de edición de nombre y meta -->
+                <div class="challenge-edit-container" id="challenge-edit-container">
+                    <div class="challenge-input-group">
+                        <label for="input-challenge-name">Nombre:</label>
+                        <input type="text" id="input-challenge-name" value="Desafío Diario" oninput="updateChallengeName(this.value)" />
+                    </div>
+                    <div class="challenge-input-group">
+                        <label for="input-challenge-goal">Meta (min):</label>
+                        <input type="number" id="input-challenge-goal" value="120" min="1" oninput="updateChallengeGoal(this.value)" />
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">Minutos hoy</span>
+                    <span class="stat-val"><span id="total-minutes">0</span> min</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Meta pactada</span>
+                    <span class="stat-val"><span id="meta-minutes-val">120</span> min</span>
+                </div>
+                <button class="btn-action" id="btn-accept-challenge" onclick="acceptChallenge()">
+                    <i class="material-icons-round" id="icon-challenge-btn">check_circle</i>
+                    <span id="text-accept-challenge">Aceptar Desafío</span>
+                </button>
+                <button class="btn-action btn-secondary" onclick="skipChallenge()">
+                    <span>Saltar por ahora</span>
+                </button>
+            </div>
+
+            <!-- Sección: Racha -->
+            <div class="section-content" id="streak-section">
+                <div class="section-header">
+                    <div class="section-header-title">
+                        <i class="material-icons-round" id="icon-streak-header">timeline</i>
+                        <h3 id="streak-title">Racha de Días</h3>
+                    </div>
+                </div>
+                <div class="calendar-meta">
+                    <span>Progreso del mes</span>
+                    <span id="streak-count">14 días activos</span>
+                </div>
+                <div class="calendar" id="calendar"></div>
+            </div>
+
+            <!-- Sección: Estética con tarjetas interactivas (Split Button oculto) -->
+            <div class="section-content active" id="aesthetics-section">
+                <div class="section-header">
+                    <div class="section-header-title">
+                        <i class="material-icons-round" id="icon-aesthetic-header">palette</i>
+                        <h3>Estética Visual</h3>
+                    </div>
+                </div>
+                <!-- Selector Desplegable Oculto (Split Button) -->
+                <select class="theme-select-quick" id="theme-dropdown" onchange="changeTheme(this.value)" style="display: none;">
+                    <option value="dungeon">Dungeons &amp; Dragons</option>
+                    <option selected="" value="manga">Manga / Neo-Tokyo</option>
+                    <option value="vampire">Vampire Gothic</option>
+                    <option value="caveman">Primal / Caveman</option>
+                </select>
+                <!-- Tarjetas Interactivas de las 4 Estéticas con iconos -->
+                <div class="theme-grid">
+                    <div class="theme-option" id="opt-dungeon" onclick="changeTheme('dungeon')">
+                        <div class="theme-swatch" style="background: rgba(245, 158, 11, 0.25); color: #f59e0b;">
+                            <i class="material-icons-round">local_fire_department</i>
+                        </div>
+                        <div class="theme-info">
+                            <div class="theme-name">Dungeons &amp; Dragons</div>
+                            <div class="theme-desc">Rúnico, dorado y pergamino</div>
+                        </div>
+                    </div>
+                    <div class="theme-option selected" id="opt-manga" onclick="changeTheme('manga')">
+                        <div class="theme-swatch" style="background: rgba(0, 242, 254, 0.25); color: #00f2fe;">
+                            <i class="material-icons-round">bolt</i>
+                        </div>
+                        <div class="theme-info">
+                            <div class="theme-name">Manga / Neo-Tokyo</div>
+                            <div class="theme-desc">Neón cian, magenta y cyberpunk</div>
+                        </div>
+                    </div>
+                    <div class="theme-option" id="opt-vampire" onclick="changeTheme('vampire')">
+                        <div class="theme-swatch" style="background: rgba(225, 29, 72, 0.25); color: #f43f5e;">
+                            <i class="material-icons-round">nightlight_round</i>
+                        </div>
+                        <div class="theme-info">
+                            <div class="theme-name">Vampire Gothic</div>
+                            <div class="theme-desc">Catedral, carmesí y sombras</div>
+                        </div>
+                    </div>
+                    <div class="theme-option" id="opt-caveman" onclick="changeTheme('caveman')">
+                        <div class="theme-swatch" style="background: rgba(249, 115, 22, 0.25); color: #f97316;">
+                            <i class="material-icons-round">fireplace</i>
+                        </div>
+                        <div class="theme-info">
+                            <div class="theme-name">Primal / Caveman</div>
+                            <div class="theme-desc">Fuego ancestral, ocre y roca</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección: Ajustes de Temporizadores -->
+            <div class="section-content" id="settings-section">
+                <div class="section-header">
+                    <div class="section-header-title">
+                        <i class="material-icons-round" id="icon-settings-header">settings</i>
+                        <h3>Ajustes de Tiempo</h3>
+                    </div>
+                </div>
+
+                <!-- Control: Concentración (Mínimo 25 min) -->
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <span class="setting-label">Concentración</span>
+                        <span class="setting-hint">Mín. 25 min</span>
+                    </div>
+                    <div class="stepper-controls">
+                        <button class="btn-stepper" id="btn-dec-concentration" onclick="adjustDuration('concentration', -1)" title="Restar 1 minuto">
+                            <i class="material-icons-round">remove</i>
+                        </button>
+                        <span class="stepper-val" id="val-concentration">25m</span>
+                        <button class="btn-stepper" onclick="adjustDuration('concentration', 1)" title="Sumar 1 minuto">
+                            <i class="material-icons-round">add</i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Control: Descanso Corto -->
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <span class="setting-label">Descanso Corto</span>
+                        <span class="setting-hint">Mín. 1 min</span>
+                    </div>
+                    <div class="stepper-controls">
+                        <button class="btn-stepper" id="btn-dec-short" onclick="adjustDuration('short', -1)" title="Restar 1 minuto">
+                            <i class="material-icons-round">remove</i>
+                        </button>
+                        <span class="stepper-val" id="val-short">5m</span>
+                        <button class="btn-stepper" onclick="adjustDuration('short', 1)" title="Sumar 1 minuto">
+                            <i class="material-icons-round">add</i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Control: Descanso Largo -->
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <span class="setting-label">Descanso Largo</span>
+                        <span class="setting-hint">Mín. 1 min</span>
+                    </div>
+                    <div class="stepper-controls">
+                        <button class="btn-stepper" id="btn-dec-long" onclick="adjustDuration('long', -1)" title="Restar 1 minuto">
+                            <i class="material-icons-round">remove</i>
+                        </button>
+                        <span class="stepper-val" id="val-long">15m</span>
+                        <button class="btn-stepper" onclick="adjustDuration('long', 1)" title="Sumar 1 minuto">
+                            <i class="material-icons-round">add</i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botón Reiniciar todos los contadores -->
+                <button class="btn-action" onclick="resetAllTimers()">
+                    <i class="material-icons-round">restore</i>
+                    <span>Reiniciar todos los contadores</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenido Central -->
+        <div class="main-content" id="main-content">
+            <!-- Selector de Modos con iconos dinámicos -->
+            <div class="button-segment">
+                <button class="active" id="concentration-btn" onclick="selectMode('concentration')">
+                    <i class="material-icons-round" id="icon-mode-focus">bolt</i>
+                    <span id="label-mode-focus">Deep Hack</span>
+                </button>
+                <button id="short-break-btn" onclick="selectMode('short')">
+                    <i class="material-icons-round" id="icon-mode-short">battery_charging_full</i>
+                    <span id="label-mode-short">Cooling Down</span>
+                </button>
+                <button id="long-break-btn" onclick="selectMode('long')">
+                    <i class="material-icons-round" id="icon-mode-long">power_settings_new</i>
+                    <span id="label-mode-long">Reboot System</span>
+                </button>
+            </div>
+
+            <!-- Área del Temporizador -->
+            <div class="timer-stage">
+                <div class="timer-halo">
+                    <div class="timer-ring"></div>
+                    <div class="theme-badge-pill" id="theme-pill">
+                        <i class="material-icons-round" id="icon-theme-pill" style="font-size: 14px;">memory</i>
+                        <span id="text-theme-pill">Cyber Matrix 99%</span>
+                    </div>
+                    <div class="timer" id="timer">25:00</div>
+                    <div class="timer-state-label" id="timer-state-label">Core ready to overclock</div>
+                </div>
+                <!-- Controles -->
+                <div class="controls">
+                    <button class="btn-ctrl btn-ctrl-primary" id="start-btn" onclick="toggleTimer()">
+                        <i class="material-icons-round" id="icon-play-btn">play_arrow</i>
+                        <span id="text-play-btn">Iniciar</span>
+                    </button>
+                    <button class="btn-ctrl btn-ctrl-secondary" onclick="resetTimer()">
+                        <i class="material-icons-round" id="icon-reset-btn">restart_alt</i>
+                        <span>Reiniciar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Frase / Lema Dinámico y Reproductor Ambiental -->
+            <div class="footer-area">
+                <div class="italic-message-box">
+                    <i class="material-icons-round" id="icon-quote">code</i>
+                    <div class="italic-message" id="theme-quote">"Tokyo nunca duerme, no pares hasta compilar tu destino."</div>
+                </div>
+
+                <!-- Botón de Música y Menú Desplegable -->
+                <div class="music-control-wrapper">
+                    <button class="btn-music-toggle" id="btn-music-toggle" onclick="toggleMusicMenu()" title="Música Ambiental de YouTube">
+                        <i class="material-icons-round" id="icon-music-btn">graphic_eq</i>
+                        <span id="music-btn-label">Sonido Ambiental</span>
+                        <i class="material-icons-round arrow-icon" id="icon-music-arrow">expand_more</i>
+                    </button>
+
+                    <div class="music-dropdown" id="music-dropdown">
+                        <div class="music-dropdown-header">
+                            <span>Banda Sonora de Enfoque</span>
+                            <span class="music-status-badge" id="music-status-badge">Reproduciendo</span>
+                        </div>
+                        
+                        <div class="music-input-group">
+                            <input type="text" id="youtube-url-input" placeholder="Pega un enlace de YouTube..." />
+                            <button class="btn-music-apply" onclick="changeYoutubeTrack()" title="Cargar enlace">
+                                <i class="material-icons-round">check</i>
+                            </button>
+                        </div>
+
+                        <!-- Aviso de enlace inválido -->
+                        <div class="music-error-alert" id="music-error-alert">
+                            <i class="material-icons-round">error_outline</i>
+                            <span>el enlace administrado no es válido</span>
+                        </div>
+
+                        <div class="music-actions-row">
+                            <button class="btn-music-action" id="btn-music-playpause" onclick="toggleYoutubePlayback()">
+                                <i class="material-icons-round" id="icon-music-playpause">pause</i>
+                                <span id="text-music-playpause">Pausar canción</span>
+                            </button>
+                            <button class="btn-music-action btn-music-default" onclick="restoreDefaultTrack()" title="Volver a la canción por defecto">
+                                <i class="material-icons-round">history</i>
+                                <span>Original</span>
+                            </button>
+                        </div>
+
+                        <!-- Control deslizante (Slider) de Volumen -->
+                        <div class="music-volume-wrapper">
+                            <div class="volume-label-row">
+                                <i class="material-icons-round">volume_up</i>
+                                <span>Volumen ambiental</span>
+                                <span id="volume-pct-val">65%</span>
+                            </div>
+                            <input type="range" id="volume-slider" min="0" max="100" value="65" oninput="adjustVolume(this.value)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reproductor oculto de YouTube -->
+    <div id="youtube-player-hidden" style="position: fixed; width: 200px; height: 1px; opacity: 0; pointer-events: none; z-index: -10;"></div>
+
+    <!-- Modal de confirmación / Alertas temáticas -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content">
+            <h3 id="modal-title">¿Interrumpir el Hechizo?</h3>
+            <p id="modal-desc">El temporizador está activo. Cambiar de modo reiniciará tu tiempo actual.</p>
+            <div class="modal-buttons" id="modal-buttons-container">
+                <button class="modal-btn-confirm" onclick="confirmChange(true)">Continuar</button>
+                <button class="modal-btn-cancel" onclick="confirmChange(false)">Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script externo -->
+    <script src="code.js"></script>
+</body>
+</html>
