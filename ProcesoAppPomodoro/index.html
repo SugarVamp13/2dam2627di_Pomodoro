@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplicación Pomodoro — Proceso de Resolución con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- Barra lateral de navegación rápida -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-badge">DOCUMENTACIÓN</span>
+        <h1>Aplicación Pomodoro</h1>
+        <p>Proceso de resolución paso a paso con IA</p>
+      </div>
+
+      <nav class="toc" aria-label="Índice de secciones">
+        <span class="toc-title">Etapas del Desarrollo</span>
+        <a href="#intro" class="toc-link">01. Introducción y Entorno</a>
+        <a href="#north-mini-code" class="toc-link">02. Sección North Mini Code FREE</a>
+        <a href="#stitch-ai" class="toc-link">03. Rediseño con Stitch AI</a>
+        <a href="#gemini-refactor" class="toc-link">04. Sección Gemini: Modularización</a>
+        <a href="#gemini-features" class="toc-link">05. Ajustes, Transparencia y Audio</a>
+        <a href="#gemini-stats" class="toc-link">06. Calendario, Contadores y Temas</a>
+        <a href="#gemini-challenges" class="toc-link">07. Sistema de Desafíos y Alertas</a>
+        <a href="#conclusion" class="toc-link">08. Conclusión y Nota Técnica</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p><strong>17 Prompts</strong> documentados</p>
+        <p><strong>32 Capturas</strong> de evolución</p>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="content">
+      <!-- Cabecera / Portada -->
+      <header id="intro" class="hero-card">
+        <div class="hero-header">
+          <span class="pill">Memoria Técnica</span>
+          <span class="pill pill-secondary">Desarrollo de Interfaces · IA</span>
+        </div>
+        <h2>APLICACIÓN POMODORO</h2>
+        <p class="subtitle">Proceso de Resolución</p>
+        <figure class="screenshot-card hero-figure">
+          <img src="images/captura_01.png" alt="Presentación inicial de la aplicación Pomodoro" loading="lazy" />
+          <figcaption>Figura 1 — Concepto y presentación de la aplicación Pomodoro.</figcaption>
+        </figure>
+      </header>
+
+      <!-- FASE 1: NORTH MINI CODE FREE -->
+      <section id="north-mini-code" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 01</span>
+          <h2>Sección North Mini Code FREE</h2>
+        </div>
+
+        <div class="narrative-block">
+          <p>Se busca crear una aplicación Pomodoro con IA.</p>
+          <p>Para ello, he usado <strong>Hermes</strong> como agente conectado a <strong>OpenRouter</strong> y con <strong>North Mini Code FREE</strong> como motor de IA.</p>
+        </div>
+
+        <figure class="screenshot-card">
+          <img src="images/captura_02.png" alt="Configuración de Hermes con OpenRouter y North Mini Code FREE" loading="lazy" />
+          <figcaption>Figura 2 — Entorno de trabajo en Hermes conectado a North Mini Code:Free.</figcaption>
+        </figure>
+
+        <!-- Prompt 1 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #01</span>
+            <span class="tool-tag">Hermes · North Mini Code FREE</span>
+          </div>
+          <p class="step-intro">He usado primeramente el siguiente prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Quiero hacer una app web Pomodoro.</p>
+            <p>La app va a tener un archivo .html, otro .css y otro .js.</p>
+            <p>El propósito principal de esta app es usar la técnica pomodoro paar gesitonar el tiempo. Para ello, debe tener un temporizador en el centro de la página que por defecto esté en 25 minutos.</p>
+            <p>Encima de este contador va a haber un segmento de buttons con 3 opciones. A la izquierda del todo "Concentración", que estará puesta por defecto y establece el temporizador en 25 minutos. En el centro "Descanso Corto" que establece el temporizador en 5 minutos y a la derecha del todo "Descanso Largo" que establece el temporizador en 15 minutos.</p>
+            <p>Cada uno de los 3 botones cambia el "color" de los botones y estilo de la página. Los 2 de descanso serán colores que deriven del azul o el verde y busquen la "calma" mientras que el de Concentración establecerá un color más "agresivo" como el rojo.</p>
+            <p>Al pulsar cualquiera de estos botones la página saltará un aviso para confirmar que el usuario esté o no seguro de que quiere realizar este cambio.</p>
+            <p>Debajo del temporizador habrá siempre un mensaje en cursiva que diga &lt;&lt;La concentración se ha hecho, estudia y no acabes maltrecho&gt;&gt;</p>
+            <p>A la izquierda quiero un FAB menu con diferentes acciones y sus respectivos iconos. La primera una sección de "Desafío". Al pulsar dicha opción aparecerá en el medio de la página un desafío de tiempo total ese día para concentrarse, el usuario podrá aceptar o no.</p>
+            <p>El segundo icono será una "Racha de días de concentración". Al pulsarlo mostrará un calendario con los minutos totales de concentración que el usuario ha tenido.</p>
+            <p>El siguiente icono tendrá una sección de "Estética". Al pulsar se mostrará un menú desplegable donde el usuario podrá elegir entre diferentes estéticas. Quiero que haya 4 estéticas, una basada en dungeons and dragons, otra basada en estética manga/anime, otra gótica de temática vampiro y otra de temática cavernícola. Al cambiar en las diferentes secciones cambiará la imágen de fondo de la página en función de la estética pedida.</p>
+          </blockquote>
+
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_03.png" alt="Estructura de archivos generada en pomodoro-app" loading="lazy" />
+              <figcaption>Figura 3 — Estructura inicial del proyecto generada por Hermes.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_04.png" alt="Primera versión funcional de la app Pomodoro" loading="lazy" />
+              <figcaption>Figura 4 — Primera versión funcional en el navegador.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Prompt 2 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #02</span>
+            <span class="tool-tag">Hermes · North Mini Code FREE</span>
+          </div>
+          <p class="step-intro">Nuevo Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>En la carpeta "C:\Users\sergi\AppData\Local\hermes\cache\scratch\pomodoro-app\images" he metido 4 imágenes, Anime.png, DungeonsAndDragons.png, Gothic.png, y Primal.png. Quiero que añadas las imágenes de fondo a la app Pomodor en función de la estética seleccionada. DungeonsAndDragons.png para "&lt;option value="dungeon"&gt;Dungeons &amp; Dragons&lt;/option&gt;", Anime.png para "&lt;option value="manga"&gt;Manga/Anime&lt;/option&gt;", Gothic.png para "&lt;option value="vampire"&gt;Vampire Gothic&lt;/option&gt;" y Primal.png para "&lt;option value="caveman"&gt;Caveman&lt;/option&gt;". Por defecto la aplicación siempre iniciará con estética "Dungeons &amp; Dragons".</p>
+          </blockquote>
+
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_05.png" alt="Respuesta de Hermes integrando las 4 imágenes temáticas" loading="lazy" />
+              <figcaption>Figura 5 — Integración de los fondos temáticos en el código.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_06.png" alt="Vista previa con fondo Dungeons & Dragons y efecto glassmorphism" loading="lazy" />
+              <figcaption>Figura 6 — Resultado con el fondo Dungeons &amp; Dragons aplicado.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Copia de seguridad y Prompt 3 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #03</span>
+            <span class="tool-tag">Hermes · North Mini Code FREE</span>
+          </div>
+          <p class="step-intro">He realizado una copia de seguridad de la app en otro directorio:</p>
+          <figure class="screenshot-card">
+            <img src="images/captura_07.png" alt="Copia de seguridad del proyecto pomodoro-app" loading="lazy" />
+            <figcaption>Figura 7 — Copia de seguridad antes de modificar la opacidad y glassmorphism.</figcaption>
+          </figure>
+
+          <blockquote class="prompt-box">
+            <p>Quiero que las imágenes de fondo se vean mejor sin que toda la interfaz quede opacada. un "background overlay" sútil. Para ello necesito que elimines también el efecto "Glassmorphism" que hay en el container y el left -panel.</p>
+          </blockquote>
+
+          <figure class="screenshot-card">
+            <img src="images/captura_08.png" alt="Resultado fallido con panel blanco opaco" loading="lazy" />
+            <figcaption>Figura 8 — Resultado inesperado con el contenedor totalmente blanco.</figcaption>
+          </figure>
+
+          <div class="alert-note warning">
+            <strong>Incidencia y cambio de estrategia:</strong> El prompt no salió cómo esperaba. Superé el límite de uso seguido de tokens para OpenRouter con <em>North Mini Code FREE</em>. Como hice copia de seguridad voy a intentar pasarle el proyecto a <strong>Stitch AI</strong> antes del último cambio, con las imágenes creadas, el <code>index.html</code>, <code>styles.css</code> y <code>app.js</code> para continuar desde ese punto pero con un “diseño” mejor estructurado.
+          </div>
+        </article>
+      </section>
+
+      <!-- FASE 2: STITCH AI -->
+      <section id="stitch-ai" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 02</span>
+          <h2>Rediseño Visual con Stitch AI</h2>
+        </div>
+
+        <!-- Prompt 4 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #04</span>
+            <span class="tool-tag">Stitch AI</span>
+          </div>
+          <p class="step-intro">El prompt para Stitch AI ha sido:</p>
+          <blockquote class="prompt-box">
+            <p>Basado en este .html, .css, .js y los archivos .png que hacen de fonde, rediseñame la aplicación de tal forma que con cada “Estética” en “&lt;div id="aesthetics-section" class="section-content"&gt;” cambien los colores e iconos.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_09.png" alt="Primer rediseño en Stitch AI con temática Eldoria Pomodoro" loading="lazy" />
+            <figcaption>Figura 9 — Rediseño inicial generado por Stitch AI (Tema Dungeons &amp; Dragons).</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 5 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #05</span>
+            <span class="tool-tag">Stitch AI</span>
+          </div>
+          <p class="step-intro">Siguiente Prompt para Stitch AI:</p>
+          <blockquote class="prompt-box">
+            <p>Quiero que se vea más la imágen de fondo. Rediseñalo para que el panel que englova la interfaz sea más transparente y el background overlay sea un poco menos sutil.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_10.png" alt="Rediseño Neo-Tokyo Focus con mayor transparencia" loading="lazy" />
+            <figcaption>Figura 10 — Ajuste de transparencia probado sobre la estética Manga / Neo-Tokyo.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 6 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #06</span>
+            <span class="tool-tag">Stitch AI</span>
+          </div>
+          <p class="step-intro">Siguiente Prompt para Stitch AI:</p>
+          <blockquote class="prompt-box">
+            <p>Me gusta como queda, aplica "Mayor Transparencia en el Contenedor Principal", Atenuación del Fondo Rediseñada" y "Legibilidad Preservada" para todas las estéticas haciendo los cambios que sean necesarios en el código.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_11.png" alt="Aplicación global de transparencia y legibilidad en Stitch AI" loading="lazy" />
+            <figcaption>Figura 11 — Calibración de transparencia y luminosidad aplicada a todos los temas.</figcaption>
+          </figure>
+
+          <p class="step-intro">Después he descargado el proyecto:</p>
+          <figure class="screenshot-card">
+            <img src="images/captura_12.png" alt="Archivos descargados desde Stitch AI" loading="lazy" />
+            <figcaption>Figura 12 — Proyecto exportado desde Stitch AI (archivo único <code>code.html</code>).</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <!-- FASE 3: GEMINI MODULARIZACIÓN -->
+      <section id="gemini-refactor" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 03</span>
+          <h2>Sección Gemini: Separación en Archivos y Rutas Locales</h2>
+        </div>
+
+        <div class="narrative-block">
+          <p>Stitch AI ha juntado el archivo <code>.html</code>, <code>.css</code> y <code>.js</code> en uno solo y las imágenes las aloja en servidores de Google. Vamos primeramente a dividirlos en 3 y a pedir a una IA que relacione las imágenes con las alojadas localmente. Ahora, voy a trabajar usando <strong>Gemini</strong>.</p>
+        </div>
+
+        <!-- Prompt 7 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #07</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt usado:</p>
+          <blockquote class="prompt-box">
+            <p>Divídeme este archivo en 3 indexados entre sí, un index.html, un styles.css y un code.js. La aplicación debe funcionar exactamente igual y responder de la misma forma. Además, las imágenes alojadas en el servidor de Google "lh3.googleusercontent.com" deben apuntar a la carpeta local images/nombreImagen.png. Los nombres de las 4 imágenes son "Anime.png" para la estética en "&lt;option selected="" value="manga"&gt;Manga / Neo-Tokyo&lt;/option&gt;", "DungeonsAndDragons.png" para "&lt;option value="dungeon"&gt;Dungeons &amp;amp; Dragons&lt;/option&gt;", "Gothic.png" para "&lt;option value="vampire"&gt;Vampire Gothic&lt;/option&gt;" y "Primal.png" para "&lt;option value="caveman"&gt;Primal / Caveman&lt;/option&gt;"</p>
+          </blockquote>
+
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_13.png" alt="Prompt enviado a Gemini con el archivo code.html" loading="lazy" />
+              <figcaption>Figura 13 — Petición de separación modular en Gemini.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_14.png" alt="Código generado e instrucciones de Gemini" loading="lazy" />
+              <figcaption>Figura 14 — Código separado e instrucciones de estructura de carpetas.</figcaption>
+            </figure>
+          </div>
+
+          <p class="step-intro">Guardo todo en un nuevo directorio:</p>
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_15.png" alt="Carpeta PomodoroRedesign con index.html, styles.css, code.js e images" loading="lazy" />
+              <figcaption>Figura 15 — Directorio <code>PomodoroRedesign</code> organizado.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_16.png" alt="Aplicación funcionando localmente tras la separación" loading="lazy" />
+              <figcaption>Figura 16 — Comprobación local en el navegador con las imágenes cargadas.</figcaption>
+            </figure>
+          </div>
+        </article>
+      </section>
+
+      <!-- FASE 4: AJUSTES, TRANSPARENCIA Y AUDIO -->
+      <section id="gemini-features" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 04</span>
+          <h2>Nuevas Funcionalidades: Ajustes, Nitidez y Reproductor Ambiental</h2>
+        </div>
+
+        <div class="narrative-block">
+          <p>Vamos a añadir funcionalidades. Voy a pedirle a Gemini que me añada un icono de ajustes aprovechando el diseño que ya tiene. Antes hacemos otra copia de lo que ya tenemos:</p>
+        </div>
+
+        <figure class="screenshot-card">
+          <img src="images/captura_17.png" alt="Copia de seguridad PomodoroRedesign - copia" loading="lazy" />
+          <figcaption>Figura 17 — Copia de seguridad previa a la implementación de ajustes.</figcaption>
+        </figure>
+
+        <!-- Prompt 8 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #08</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Añade un nuevo botón de ajustes en el FAB Menu izquierdo usando los diseños que ya tiene la app con sus distintos temas. Al pulsar dicho botón de ajustes se abrirá un menú desplegable en el que se podrá sumar o restar el número de inicio de los distintos contadores “Concentración”, “Descanso Corto” y Descanso Largo”. “Concentración” sin embargo no podrá bajar de los 25 minutos. Dentro del menú de ajustes también habrá una opción de “Reiniciar todos los contadores” que al pulsarlo se reiniciarían todos los contadores que hay activos.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_18.png" alt="Menú de Ajustes de Tiempo implementado en Vampire Gothic" loading="lazy" />
+            <figcaption>Figura 18 — Panel de Ajustes de Tiempo integrado en el menú lateral.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 9 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #09</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Ajuste visual solicitado:</p>
+          <blockquote class="prompt-box">
+            <p>Ahora me gustaría que la imágen se viese mejor y el contenedor que engloba toda la interfaz de la aplición tenga menos "blur" o se vea menos borroso.</p>
+          </blockquote>
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_19.png" alt="Respuesta de Gemini ajustando el backdrop-filter en styles.css" loading="lazy" />
+              <figcaption>Figura 19 — Ajuste de desenfoque en <code>styles.css</code>.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_20.png" alt="Fondo con mayor nitidez tras reducir el blur" loading="lazy" />
+              <figcaption>Figura 20 — Fondo mucho más nítido preservando el contraste de los textos.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Prompt 10 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #10</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Vamos a intentar otra cosa. De nuevo, aprovechando los recursos estéticos que hay, añade debajo de la "theme-quote" un botón con un icono relacionado con la música (Éste cambiará en función de la estética seleccionada). Dicho botó abrirá un menú desplegable que permitirá poner un enlace a Youtube para que suene una canción de fondo a elección. Además, en el menú desplegable habrá opción de pausar la canción. Además que siempre suene de fondo la canción de este enlace "https://youtu.be/OoqR5dEiNcY?si=jJ1D8Ffpeyf5BJa7". Al poner otro enlace en la opción correspondiente, la canción de fondo será sutituida por la del enlace del vídeo que se haya introducido. Si además el enlace no es válido saltará un aviso en la web que diga "el enlace administrado no es válido".</p>
+          </blockquote>
+          <div class="gallery-grid two-cols">
+            <figure class="screenshot-card">
+              <img src="images/captura_21.png" alt="Desplegable Banda Sonora de Enfoque en la app" loading="lazy" />
+              <figcaption>Figura 21 — Menú desplegable de Sonido Ambiental integrado bajo la cita.</figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <img src="images/captura_22.png" alt="Explicación de Gemini sobre la API de YouTube IFrame" loading="lazy" />
+              <figcaption>Figura 22 — Implementación mediante la API oficial de YouTube IFrame.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Prompt 11 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #11</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Vamos ahora a hacer otra cosa.</p>
+            <p>Según la estética la canción por defecto de fondo cambiará a excepción de que el usuario meta una URL él mismo.</p>
+            <p>Si no introduce ninguna, la canción de fondo cambiará según la estética y al terminar volverá a empezar de nuevo.</p>
+            <ul>
+              <li>Estética Dungeons &amp; Dragons: <code>https://youtu.be/RNAU_Tfk2rg?si=ifI_92ci2QT9vwqS</code></li>
+              <li>Estética Manga / Neo-Tokyo: <code>https://youtu.be/oCIzK6--3FM?si=aG7LetAawnStYevx</code></li>
+              <li>Estética Vampire Gothic: <code>https://youtu.be/OoqR5dEiNcY?si=EJwr1HkPW3cG9GZO</code></li>
+              <li>Estética Primal / Caveman: <code>https://youtu.be/rtC9PDuE5ag?si=mqo84lkLQdSrzVCr</code></li>
+            </ul>
+            <p>El Botón “Original” de <code>onclick="restoreDefaultTrack()"</code> del menú desplegable de la configuración de la música pondrá automáticamente la canción por defecto que tenga asignada la estética.</p>
+            <p>Si el usuario introdujera él mismo una URL la canción de fondo no cambiará a pesar de cambiar de estética a excepción de que pulse el botón “Original” o que la canción que ha introducido se termine, en cuyo caso se pondrá de nuevo la canción asignada a la estética.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_23.png" alt="Resumen de cambios de pistas musicales por tema en Gemini" loading="lazy" />
+            <figcaption>Figura 23 — Lógica de pistas musicales asociadas dinámicamente a cada tema.</figcaption>
+          </figure>
+
+          <div class="alert-note info">
+            <strong>Nota técnica de ejecución:</strong> Las canciones funcionan únicamente si se alojan en un servidor servido por <code>http</code> y/o <code>https</code>; abriendo el <code>index.html</code> localmente rechaza las conexiones de la API de YouTube.
+          </div>
+
+          <p class="step-intro">Llegados ya a este punto hacemos otra copia de seguridad del proyecto:</p>
+          <figure class="screenshot-card">
+            <img src="images/captura_24.png" alt="Copia de seguridad PomodoroRedesign - copia (2)" loading="lazy" />
+            <figcaption>Figura 24 — Segunda copia de seguridad antes de modificar estadísticas y desafíos.</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <!-- FASE 5: CALENDARIO, CONTADORES Y MENSAJES DE DESCANSO -->
+      <section id="gemini-stats" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 05</span>
+          <h2>Calendario de Rachas, Contadores Globales y Modo Descanso</h2>
+        </div>
+
+        <!-- Prompt 12 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #12</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Ahora vamos a cambiar el calendario, quiero que en él salga un contador de minutos para cada día y que dicho contador suba conforme pasan los minutos en “Concentración”. Cada día tendrá unos minutos totales según el día en que se hayan acumulado esos minutos.</p>
+            <p>Arriba a la derecha de la página, fuera del recuadro que engloba toda la interfaz, quiero 2 contadores de diferente color. Uno rojo que ponga los minutos totales que han pasado en “Concentración” juntando lo acumulado de todos los días. El otro contador será de color azul y recogerá los minutos totales que han pasado en cualquiera de los 2 tipos de descansos independientemente del día.</p>
+            <p>Utiliza las herramientas de diseño que ya tiene la página para conseguir esto y cambia el diseño de los números en función de la estética seleccionada para que coincida con la de los números del temporizador principal.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_25.png" alt="Calendario con minutos diarios y contadores globales arriba a la derecha" loading="lazy" />
+            <figcaption>Figura 25 — Calendario mensual con minutos acumulados y contadores superiores (Focus / Break).</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 13 y 14 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #13</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Cambia el mensaje <code>&lt;div class="timer-state-label" id="timer-state-label"&gt;MENSAJE&lt;/div&gt;</code> solo para cuando el usuario selecciona alguno de los 2 tipos de descanso para que se adhiera mejor a una sensación de “descanso”. El mensaje nuevo deberá ser distinto y coherente según a temática. Por ejemplo, para la estética “Vampire Gothic” puede ser “No permitas que el estrés amargue tu eterna estancia”.</p>
+            <p>El mensaje que aparece al estar seleccionado el temporizador de “Concentración” permanecerá igual.</p>
+            <p>Además añade una nueva función. Cuando se inicie cualquiera de los temporizadores de descanso el contenedor principal reducirá el blur a “0”. Cuando se pause el temporizador de descanso o llegue a su fin el blur volverá a estar como al principio.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_26.png" alt="Modo descanso activo con blur reducido a 0 en Vampire Gothic" loading="lazy" />
+            <figcaption>Figura 26 — Descanso iniciado: desenfoque reducido a 0 y frase temática en pantalla.</figcaption>
+          </figure>
+
+          <p class="step-intro">Sin embargo, al cambiar de estilo el mensaje no cambia:</p>
+          <figure class="screenshot-card">
+            <img src="images/captura_27.png" alt="Error detectado al cambiar a Primal Caveman manteniendo el texto de Vampire Gothic" loading="lazy" />
+            <figcaption>Figura 27 — Error detectado: al cambiar de tema durante el descanso se mantenía el texto del tema previo.</figcaption>
+          </figure>
+
+          <div class="step-meta" style="margin-top: 1.5rem;">
+            <span class="prompt-badge">Prompt #14</span>
+            <span class="tool-tag">Gemini · Corrección de Bug</span>
+          </div>
+          <blockquote class="prompt-box">
+            <p>Hay un error que corregir. El mensaje cambia cuando se selecciona el modo descanso, pero si se cambia de tema entre medias del descanso se sigue mostrando el mensaje que corresponde al tema anterior. El mensaje también debe de cambiar al que corresponde con el descanso del tema seleccionado si se cambia de tema en mitad del proceso del temporizador de descanso.</p>
+          </blockquote>
+          <p class="step-result">Ahora sí realiza el cambio conforme cambia el tema seleccionado.</p>
+        </article>
+      </section>
+
+      <!-- FASE 6: SISTEMA DE DESAFÍOS Y PULIDO FINAL -->
+      <section id="gemini-challenges" class="phase-section">
+        <div class="phase-header">
+          <span class="phase-number">FASE 06</span>
+          <h2>Sistema de Desafíos, Historial y Alertas Temáticas</h2>
+        </div>
+
+        <!-- Prompt 15 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #15</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Primero, cambia el mensaje de descanso del tema “Vampire Gothic” de “No permitas que el estrés amargue tu existencia”, elige otro más corto y que sea afín al tema de “Vampire Gothic”.</p>
+            <p>Después, actualiza la opción de “Desafío del Día”. Cuando se selecciona “Aceptar desafío” al darle a la opción de “saltar por ahora” el desafío sigue saliendo como “aceptado”. El icono que tiene ahora por defecto el botón “Aceptar desafío” solo debe aparecer cuando éste es pulsado, cuando se le da a la opción “Saltar por ahora” el icono deberá desaparecer y la opción de “Minutos hoy” que va sumando los minutos que el usuario para en “Concentración” se reseteará a 0.</p>
+            <p>Añade también arriba a la derecha, al lado de los contadores de minutos totales en concentración y en descanso, otro contador de color morado que cuente los desafíos completados.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_28.png" alt="Nuevo mensaje Reposo en la cripta y contador morado de desafíos" loading="lazy" />
+            <figcaption>Figura 28 — Mensaje corto <em>“Reposo en la cripta”</em> y contador superior de desafíos completados.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 16 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #16</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Ahora, en la opción de “Desafío del día” añade un “Nombre de Desafío” que por defecto será “Desafío Diario”. Añade también la opción de modificar los minutos de meta y el nombre de un desafío únicamente antes de pulsar en “Aceptar Desafío”, una vez se acepte el desafío la opción de modificar el nombre o los minutos de meta desaparecerá.</p>
+            <p>Añade que cuando pases el ratón por encima del contador de “Desafíos” te muestre el nombre de los desafíos que has completado, los minutos que ha durado, el día y la hora en que se ha completado.</p>
+            <p>Añade también la opción de modificar el volumen de la canción que se está reproduciendo en el menú desplegable que sale al pulsar la opción “Sonido Ambiental” con un slider. Dicho slider estará situado debajo de las opciones de “Pausar canción” y “Original”.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_29.png" alt="Edición de desafío, tooltip historial de desafíos y slider de volumen" loading="lazy" />
+            <figcaption>Figura 29 — Campos de edición de desafío, historial emergente y control deslizante de volumen.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 17 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #17</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>En “Desafío del día” encierra la edición del nombre y meta en un botón llamado “Editar” que abra de forma desplegable las opciones de edición de nombre y meta para el “Desafío diario”. El botón desaparecerá en cuanto el desafío sea aceptado y volverá a aparecer cuando éste se complete o se pulse la opción de “Saltar por ahora”.</p>
+            <p>El botón Editar deberá tener un color y diseño relacionado con el tema elegido y diferente del que tiene el botón de “Aceptar Desafío”.</p>
+            <p>Cambia también el diseño del editor de nombre, meta y de los datos que se introducen dentro de éstos para que sean coherentes con el diseño que hay elegido.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_30.png" alt="Botón Editar Desafío y registro en el Historial de Desafíos" loading="lazy" />
+            <figcaption>Figura 30 — Botón desplegable <em>Editar Desafío</em> e historial actualizado tras completar una meta.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 18 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #18</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Reduce el tamaño del botón “Editar Desafío” y cambia un poco su diseño para diferenciarlo del botón “Aceptar Desafío”.</p>
+            <p>Cuando cambias de temporizador de “Concentración” a cualquiera de los de “Descanso” el Aviso que salta tiene un diseño que va acorde con el tema elegido.</p>
+            <p>Modifica también las alertas en la sección de “Desafío Diario” a la hora de pulsar “Saltar por ahora”, “Aceptar Desafío” o cuando se completa el desafío para que vayan afines al estilo del tema elegido.</p>
+            <p>Además, cuando un desafío se completa, éste debe volver automáticamente a tener el nombre y tiempos por defecto además de dejar de sumar minutos a “Minutos hoy” hasta que no se le vuelva a pulsar al botón “Aceptar Desafío”.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_31.png" alt="Modal temático de Desafío Completado en Neo-Tokyo Focus" loading="lazy" />
+            <figcaption>Figura 31 — Alerta personalizada temática al completar un desafío.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 19 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #19</span>
+            <span class="tool-tag">Gemini</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Dentro de “Minutos hoy”, en la sección de “Desafío Diario” en “ <code>&lt;span class="stat-val"&gt;&lt;span id="total-minutes"&gt;0&lt;/span&gt; min&lt;/span&gt;</code>” el número de los minutos que se recogen actualmente se resetea el desafío si éste es completado o se pulsa el botón “Saltar por ahora”, además de esto, añade que deje de subir el número de minutos en la sección “Minutos hoy” hasta que el usuario no vuelva a pulsar la opción “Aceptar desafío”. Cuando un desafío seleccionado se completa y aparece el desafío por defecto (que ya está configurado siendo “Desafío Diario” y reseteando el contador de “Minutos hoy” a 0) éste desafío aparecerá sin estar “aceptado” hasta que el usuario pulse el botón “Aceptar Desafío”, exactamente igual que cuando la página carga desde un principio. Y por tanto, en dicho caso no deben seguir sumándose los minutos a “Minutos hoy”.</p>
+          </blockquote>
+          <figure class="screenshot-card">
+            <img src="images/captura_32.png" alt="Estado final de la interfaz con el desafío reiniciado tras completarse" loading="lazy" />
+            <figcaption>Figura 32 — Resultado final tras completar el desafío y reiniciar automáticamente los valores por defecto.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Prompt 20 -->
+        <article class="step-card">
+          <div class="step-meta">
+            <span class="prompt-badge">Prompt #20</span>
+            <span class="tool-tag">Gemini · Ajustes Finales</span>
+          </div>
+          <p class="step-intro">Prompt:</p>
+          <blockquote class="prompt-box">
+            <p>Ahora la opción “Racha de días” deberá almacenar y mostrar los minutos en que se mantenga activa “Concentración” independientemente de si un desafío está aceptado o no.</p>
+            <p>En el temporizador, la alerta que sale a la hora de pulsar la opción “Reiniciar” deberá tener también un diseño acorde con el tema elegido igual que las demás.</p>
+            <p>De la sección “Estética Visual” oculta solo el “Split Button” que al hacer click abre una selección de nombres para cambiar de estética. Mantén los botones pertinentes para cambiar la estética que están fuera del “Split Button” y tienen iconos.</p>
+          </blockquote>
+        </article>
+      </section>
+
+      <!-- CONCLUSIÓN -->
+      <section id="conclusion" class="phase-section conclusion-card">
+        <div class="phase-header">
+          <span class="phase-number">CIERRE</span>
+          <h2>Conclusión y Nota de Diseño</h2>
+        </div>
+
+        <p class="conclusion-text">
+          Así concluye esta app Pomodoro, con sus opciones funcionales y relacionadas con el concepto del método “Pomodoro” para mejorar la concentración.
+        </p>
+
+        <div class="alert-note final-note">
+          <strong>NOTA:</strong> He decidido en el caso de esta aplicación continuar con el uso de <code>alert()</code> por la naturaleza de la misma. Que se “interrumpa” la app cuando termina un temporizador o cuando el usuario intenta cambiar de uno de concentración a uno de descanso y viceversa me parece una mejor opción que métodos de mensajes con formularios emergentes como un <em>InlineAlert</em> en una aplicación basada en el método Pomodoro, en la que el usuario no va a estar mirando la pantalla constantemente.
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
