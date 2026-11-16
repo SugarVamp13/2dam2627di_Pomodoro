@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de Aforo</title>
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app-card">
+    <!-- Encabezado -->
+    <header class="header">
+      <div class="brand-tag">
+        <i data-lucide="users"></i>
+        <span>Control de Aforo</span>
+      </div>
+      <h1 class="title">Contador de Personas</h1>
+      <p class="subtitle">Gestiona el ingreso y la distribución en tiempo real</p>
+    </header>
+
+    <!-- Contador Total -->
+    <section class="total-counter-card" aria-label="Total de personas">
+      <div class="total-header">
+        <i data-lucide="activity" style="width: 16px; height: 16px;"></i>
+        <span>Personas en Sala</span>
+      </div>
+      <div id="count-total" class="total-display">0</div>
+      <div class="total-label">Aforo Total Acumulado</div>
+    </section>
+
+    <!-- Rejilla de Hombres y Mujeres con botones +1 y -1 -->
+    <section class="counters-grid">
+      <!-- Tarjeta Hombres -->
+      <article class="counter-box">
+        <div class="counter-box-header">
+          <div class="icon-badge">
+            <i data-lucide="user"></i>
+          </div>
+          <span>Hombres</span>
+        </div>
+        
+        <div id="count-men" class="counter-number">0</div>
+
+        <div class="button-group">
+          <button 
+            type="button" 
+            class="btn-action btn-minus" 
+            id="btn-men-minus" 
+            title="Restar 1 hombre"
+            disabled
+          >
+            <i data-lucide="minus"></i>
+            <span>-1</span>
+          </button>
+          <button 
+            type="button" 
+            class="btn-action btn-plus" 
+            id="btn-men-plus" 
+            title="Sumar 1 hombre"
+          >
+            <i data-lucide="plus"></i>
+            <span>+1</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Tarjeta Mujeres -->
+      <article class="counter-box">
+        <div class="counter-box-header">
+          <div class="icon-badge women">
+            <i data-lucide="user-check"></i>
+          </div>
+          <span>Mujeres</span>
+        </div>
+        
+        <div id="count-women" class="counter-number">0</div>
+
+        <div class="button-group">
+          <button 
+            type="button" 
+            class="btn-action btn-minus" 
+            id="btn-women-minus" 
+            title="Restar 1 mujer"
+            disabled
+          >
+            <i data-lucide="minus"></i>
+            <span>-1</span>
+          </button>
+          <button 
+            type="button" 
+            class="btn-action btn-plus" 
+            id="btn-women-plus" 
+            title="Sumar 1 mujer"
+          >
+            <i data-lucide="plus"></i>
+            <span>+1</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Acciones Inferiores y Distribución -->
+    <footer class="footer-actions">
+      <div class="ratio-info">
+        <span class="ratio-pill">
+          <span class="ratio-pill-dot dot-men"></span>
+          <span id="percent-men">0%</span> Hombres
+        </span>
+        <span class="ratio-pill">
+          <span class="ratio-pill-dot dot-women"></span>
+          <span id="percent-women">0%</span> Mujeres
+        </span>
+      </div>
+
+      <button type="button" class="btn-reset" id="btn-reset" title="Reiniciar todos los contadores">
+        <i data-lucide="rotate-ccw" style="width: 15px; height: 15px;"></i>
+        <span>Reiniciar</span>
+      </button>
+    </footer>
+  </main>
+
+  <!-- =========================================
+       JavaScript: Lógica del Contador
+       ========================================= -->
+    <script src="script.js"></script>
+</body>
+</html>

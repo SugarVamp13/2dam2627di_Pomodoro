@@ -1,0 +1,348 @@
+/* =========================================
+       CSS: Variables y Paleta Granate Elegante
+       ========================================= */
+    :root {
+      --color-primary: #800020;        /* Granate clásico / Borgoña */
+      --color-primary-dark: #5c0017;   /* Granate intenso / oscuro */
+      --color-primary-light: #9e1b32;  /* Granate vivo */
+      --color-primary-soft: #fbf2f4;   /* Fondo tenue con toque granate */
+      --color-primary-subtle: #f2dce1; /* Borde y fondo suave */
+      --color-men: #6b1426;            /* Acento masculino elegante */
+      --color-women: #9e1a38;          /* Acento femenino elegante */
+      --color-bg: #fdf8f9;             /* Fondo página */
+      --color-surface: #ffffff;        /* Fondo tarjetas */
+      --color-text-main: #231215;      /* Texto principal casi negro cálido */
+      --color-text-muted: #755f64;     /* Texto secundario */
+      --color-border: #edd5da;         /* Bordes suaves */
+      --shadow-sm: 0 2px 8px rgba(128, 0, 32, 0.04);
+      --shadow-md: 0 10px 30px rgba(92, 0, 23, 0.08);
+      --shadow-lg: 0 20px 40px rgba(92, 0, 23, 0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(128, 0, 32, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(158, 27, 50, 0.06) 0px, transparent 50%);
+    }
+
+    /* Contenedor Principal */
+    .app-card {
+      width: 100%;
+      max-width: 680px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Encabezado */
+    .header {
+      text-align: center;
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-primary-soft);
+      border: 1px solid var(--color-primary-subtle);
+      color: var(--color-primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .brand-tag i {
+      width: 16px;
+      height: 16px;
+    }
+
+    .title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Tarjeta Contador Total */
+    .total-counter-card {
+      background: linear-gradient(145deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .total-counter-card::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .total-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .total-display {
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      margin: 0.5rem 0;
+      transition: transform 0.15s ease;
+    }
+
+    .total-label {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    /* Cuadrícula de Contadores Específicos */
+    .counters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 540px) {
+      .counters-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-card {
+        padding: 1.5rem;
+      }
+      .total-display {
+        font-size: 3.5rem;
+      }
+    }
+
+    .counter-box {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .counter-box:hover {
+      border-color: var(--color-primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .counter-box-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--color-primary-dark);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+    }
+
+    .icon-badge.women {
+      background: #fbf0f3;
+      color: var(--color-women);
+    }
+
+    .counter-number {
+      font-size: 3.25rem;
+      font-weight: 800;
+      color: var(--color-text-main);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    /* Botones de Acción */
+    .button-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .btn-action {
+      flex: 1;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    /* Botón Restar */
+    .btn-minus {
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary-subtle);
+    }
+
+    .btn-minus:hover:not(:disabled) {
+      background: #f5cfd7;
+      color: var(--color-primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-minus:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .btn-minus:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Botón Sumar */
+    .btn-plus {
+      background: var(--color-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(128, 0, 32, 0.2);
+    }
+
+    .btn-plus:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(128, 0, 32, 0.28);
+    }
+
+    .btn-plus:active {
+      transform: translateY(1px);
+    }
+
+    /* Sección de Control Global / Reset */
+    .footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .ratio-info {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .ratio-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .ratio-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-men { background-color: var(--color-men); }
+    .dot-women { background-color: var(--color-women); }
+
+    .btn-reset {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-reset:hover {
+      background: var(--color-primary-soft);
+      border-color: var(--color-primary-subtle);
+      color: var(--color-primary);
+    }
+
+    /* Animación numérica pop */
+    .pulse-anim {
+      animation: pop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
